@@ -33,23 +33,23 @@ src/
 | Component | Vai trò |
 |---|---|
 | `UserSelector` | Chọn profile hiện tại (không cần auth) |
-| `CreateProfile` | Part A – Tạo profile |
-| `BrowseProfiles` | Part B – Xem & Like |
+| `CreateProfile` | Part A - Tạo profile |
+| `BrowseProfiles` | Part B - Xem & Like |
 | `MatchesView` | Danh sách match |
-| `AvailabilityPicker` | Part C – Chọn lịch rảnh & tìm slot trùng |
+| `AvailabilityPicker` | Part C - Chọn lịch rảnh & tìm slot trùng |
 
 ---
 
 ## Lưu data bằng gì
 
-**localStorage** – không cần backend.  
+**localStorage** - không cần backend.  
 Key/value schema:
 
 ```
-profiles        → Profile[]          // Danh sách tất cả user
-likes           → { email: { email: true } }  // A đã like B
-matches         → { "emailA|emailB": true }    // Các cặp đã match
-availabilities  → { email: Slot[] }            // Lịch rảnh từng user
+profiles        -> Profile[]          // Danh sách tất cả user
+likes           -> { email: { email: true } }  // A đã like B
+matches         -> { "emailA|emailB": true }    // Các cặp đã match
+availabilities  -> { email: Slot[] }            // Lịch rảnh từng user
 ```
 
 ---
@@ -57,9 +57,9 @@ availabilities  → { email: Slot[] }            // Lịch rảnh từng user
 ## Logic Match
 
 ```
-A like B → likes[A.email][B.email] = true
+A like B -> likes[A.email][B.email] = true
 Khi A like B, kiểm tra: likes[B.email]?.[A.email] === true
-Nếu đúng → Match! → Lưu vào matches[sorted(A,B).join("|")]
+Nếu đúng -> Match! -> Lưu vào matches[sorted(A,B).join("|")]
 ```
 
 Match được lưu ngay lập tức và hiển thị popup "It's a Match!".
@@ -90,7 +90,7 @@ Trả về **slot trùng đầu tiên** tìm được (first common slot).
 ## Nếu có thêm thời gian sẽ cải thiện gì
 
 - **Backend thực sự** (Supabase / Firebase) để nhiều người dùng trên nhiều thiết bị
-- **Real-time updates** – khi B like A, A nhận notification ngay
+- **Real-time updates** - khi B like A, A nhận notification ngay
 - **Upload ảnh** cho profile thay vì avatar chữ cái
 - **Chat** sau khi match
 
@@ -98,8 +98,8 @@ Trả về **slot trùng đầu tiên** tìm được (first common slot).
 
 ## 3 tính năng đề xuất thêm
 
-1. **In-app messaging** – Sau khi match, cho phép 2 người nhắn tin để biết nhau trước khi hẹn. Đây là tính năng core của mọi dating app, tăng engagement nhiều nhất.
+1. **In-app messaging** - Sau khi match, cho phép 2 người nhắn tin để biết nhau trước khi hẹn. Đây là tính năng core của mọi dating app, tăng engagement nhiều nhất.
 
-2. **Filter & Discovery algorithm** – Cho phép lọc theo độ tuổi, giới tính, khoảng cách. Người dùng thấy profile phù hợp hơn → tỷ lệ match cao hơn → retention cao hơn.
+2. **Filter & Discovery algorithm** - Cho phép lọc theo độ tuổi, giới tính, khoảng cách. Người dùng thấy profile phù hợp hơn -> tỷ lệ match cao hơn -> retention cao hơn.
 
-3. **Streak & Gamification** – Thưởng "streak" khi người dùng dùng app mỗi ngày, hoặc badge khi có match đầu tiên. Tăng daily active user mà không cần thay đổi core logic.
+3. **Streak & Gamification** - Thưởng "streak" khi người dùng dùng app mỗi ngày, hoặc badge khi có match đầu tiên. Tăng daily active user mà không cần thay đổi core logic.
