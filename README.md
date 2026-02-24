@@ -102,4 +102,4 @@ Trả về **slot trùng đầu tiên** tìm được (first common slot).
 
 2. **Filter & Discovery algorithm** - Cho phép lọc theo độ tuổi, giới tính, khoảng cách. Người dùng thấy profile phù hợp hơn -> tỷ lệ match cao hơn -> retention cao hơn.
 
-3. **Streak & Gamification** - Thưởng "streak" khi người dùng dùng app mỗi ngày, hoặc badge khi có match đầu tiên. Tăng daily active user mà không cần thay đổi core logic.
+3. **Streak & Gamification** - Thưởng "streak" khi người dùng dùng app mỗi ngày hoặc badge khi có match đầu tiên. Tăng daily active user mà không cần thay đổi core logic.
