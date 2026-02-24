@@ -1,7 +1,7 @@
 # 💕 Breeze – Mini Dating App Prototype
 
-Demo: [link Vercel sau khi deploy]  
-Repo: [link GitHub của bạn]
+Demo: dating-app-ten-eta.vercel.app
+Repo: github.com/viethoang251004/dating-app
 
 ## Cách chạy
 
